@@ -23,7 +23,7 @@
 
        <div class="d-flex justify-content-center align-center mt-5 has-validation row">
            <div class="col-md-6">
-               <input type="text" class="form-control form-control-lg animate__animated" :class="{'animate__headShake ': emptyInput, 'is-invalid': emptyInput}" placeholder="Compose a todo" @keyup.enter="createTodo" v-model="todo">
+               <input type="text" class="form-control form-control-lg animate__animated" :class="{'animate__headShake ': emptyInput, 'is-invalid': emptyInput}" placeholder="Compose a todo. Hit the enter to save todo" @keyup.enter="createTodo" v-model="todo">
            </div>
        </div>
        <div class="row justify-content-center my-4 fw-bold text-secondary fs-5">
@@ -36,7 +36,9 @@
        </div>
        <div class="mx-0 my-md-5 row justify-content-center overflow-auto" style="max-height: 600px;" id="scroll">
            <div class="col-12 col-md-6">
-               <div class="alert shadow" role="alert" 
+               <div class="alert shadow" 
+               role="alert" 
+               title="Double tab to edit"
                v-for="todo in todos" 
                :class="{'alert-success': todo.isComplete, 'alert-danger': !todo.isComplete, 'text-secondary': todo.isComplete}" 
                @dblclick="editTodo(todo.id)">
